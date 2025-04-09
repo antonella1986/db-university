@@ -86,7 +86,7 @@ Modellizzare la struttura di un database per memorizzare tutti i dati riguardant
 - email: VARCHAR(255) - NOT NULL - UNIQUE
 - date_of_birth: DATE() - NOT NULL
 - address: VARCHAR(255) - NULL 
-- registration_number: SMALLINT(thesedicks) - UNIQUE
+- registration_number: SMALLINT(6) - UNIQUE
 - degree_course_id: (BIGINT) foreign key - NOT NULL
 - year: YEAR() - NULL
 - year_of_registration: YEAR() - NOT NULL
