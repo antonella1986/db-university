@@ -24,8 +24,8 @@ Modellizzare la struttura di un database per memorizzare tutti i dati riguardant
 **columns**
 - id (BIGINT) primary key - auto_increment - NOT NULL
 - name: VARCHAR(255) NOT NULL
-- degree_courses_id: (BIGINT) foreign key - NOT NULL
-- subjects_id: (BIGINT) foreign key - NOT NULL
+- degree_course_id: (BIGINT) foreign key - NOT NULL
+- subject_id: (BIGINT) foreign key - NOT NULL
 - teacher_id: (BIGINT) foreign key - NOT NULL
 
 ***************************************************************
@@ -85,7 +85,7 @@ Modellizzare la struttura di un database per memorizzare tutti i dati riguardant
 - lastname: VARCHAR(255) - NOT NULL
 - email: VARCHAR(255) - NOT NULL - UNIQUE
 - date_of_birth: DATE() - NOT NULL
-- address: VARCHAR(255) - NULL
+- address: VARCHAR(255) - NULL 
 - registration_number: SMALLINT(thesedicks) - UNIQUE
 - degree_course_id: (BIGINT) foreign key - NOT NULL
 - year: YEAR() - NULL
