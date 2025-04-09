@@ -70,7 +70,10 @@ Modellizzare la struttura di un database per memorizzare tutti i dati riguardant
 **columns**
 - id (BIGINT) primary key - auto_increment - NOT NULL
 - subject_id: (BIGINT) foreign key - NOT NULL
+- teacher_id: (BIGINT) foreign key - NOT NULL
 - date: DATE() - NOT NULL
+- exam_session_expire: DATE() - NOT NULL
+- number_of_students: SMALLINT() - NOT NULL
 
 ***************************************************************
 
@@ -97,5 +100,5 @@ Modellizzare la struttura di un database per memorizzare tutti i dati riguardant
 - vote: TINYINT(2) - NOT NULL
 - is_with_honours: TINYINT DEFAULT(0)
 - student_id: (BIGINT) foreign key - NOT NULL
-- exam_session: (BIGINT) foreign key - NOT NULL
+- exam_session_id: (BIGINT) foreign key - NOT NULL
 - teacher_id: (BIGINT) foreign key - NOT NULL
