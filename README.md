@@ -23,8 +23,10 @@ Modellizzare la struttura di un database per memorizzare tutti i dati riguardant
 
 **columns**
 - id (BIGINT) primary key - auto_increment - NOT NULL
-- name:
-- 
+- name: VARCHAR(255) NOT NULL
+- degree_courses_id: (BIGINT) foreign key - NOT NULL
+- subjects_id: (BIGINT) foreign key - NOT NULL
+- teacher_id: (BIGINT) foreign key - NOT NULL
 
 ***************************************************************
 
@@ -32,8 +34,8 @@ Modellizzare la struttura di un database per memorizzare tutti i dati riguardant
 
 **columns**
 - id (BIGINT) primary key - auto_increment - NOT NULL
-- name:
-- department_id: foreign key
+- name: VARCHAR(255) - NOT NULL
+- department_id: (BIGINT) foreign key - NOT NULL
 
 ***************************************************************
 
@@ -41,10 +43,10 @@ Modellizzare la struttura di un database per memorizzare tutti i dati riguardant
 
 **columns**
 - id (BIGINT) primary key - auto_increment - NOT NULL
-- name:
-- teacher_id:
-- department_id:
-- degree_course_id:
+- name: VARCHAR(100) - NOT NULL
+- teacher_id: (BIGINT) foreign key - NOT NULL
+- department_id: (BIGINT) foreign key - NOT NULL
+- degree_course_id: (BIGINT) foreign key - NOT NULL
 
 ***************************************************************
 
@@ -52,14 +54,14 @@ Modellizzare la struttura di un database per memorizzare tutti i dati riguardant
 
 **columns**
 - id (BIGINT) primary key - auto_increment - NOT NULL
-- name:
-- lastname:
-- email:
-- date_of_birth:
-- address:
-- subject_id:
-- department_id:
-- role:
+- name: VARCHAR(255) - NOT NULL
+- lastname: VARCHAR(255) - NOT NULL
+- email: VARCHAR(255) - NOT NULL - UNIQUE
+- date_of_birth: DATE() - NOT NULL
+- address: VARCHAR(255) - NULL
+- subject_id: (BIGINT) foreign key - NOT NULL
+- department_id: (BIGINT) foreign key - NOT NULL
+- role: VARCHAR(50) - NOT NULL
 
 ***************************************************************
 
@@ -67,8 +69,8 @@ Modellizzare la struttura di un database per memorizzare tutti i dati riguardant
 
 **columns**
 - id (BIGINT) primary key - auto_increment - NOT NULL
-- subject_id:
-- date:
+- subject_id: (BIGINT) foreign key - NOT NULL
+- date: DATE() - NOT NULL
 
 ***************************************************************
 
@@ -76,15 +78,15 @@ Modellizzare la struttura di un database per memorizzare tutti i dati riguardant
 
 **columns**
 - id (BIGINT) primary key - auto_increment - NOT NULL
-- name:
-- lastname:
-- email:
-- date_of_birth:
-- address:
-- registration_number: SMALLINT(thesedicks)
-- degree_course_id
-- year: YEAR()
-- year_of_registration: YEAR()
+- name: VARCHAR(255) - NOT NULL
+- lastname: VARCHAR(255) - NOT NULL
+- email: VARCHAR(255) - NOT NULL - UNIQUE
+- date_of_birth: DATE() - NOT NULL
+- address: VARCHAR(255) - NULL
+- registration_number: SMALLINT(thesedicks) - UNIQUE
+- degree_course_id: (BIGINT) foreign key - NOT NULL
+- year: YEAR() - NULL
+- year_of_registration: YEAR() - NOT NULL
 
 ***************************************************************
 
@@ -92,8 +94,8 @@ Modellizzare la struttura di un database per memorizzare tutti i dati riguardant
 
 **columns**
 - id (BIGINT) primary key - auto_increment - NOT NULL
-- vote: TINYINT(2)
+- vote: TINYINT(2) - NOT NULL
 - is_with_honours: TINYINT DEFAULT(0)
-- student_id:
-- exam_session:
-- teacher_id:
+- student_id: (BIGINT) foreign key - NOT NULL
+- exam_session: (BIGINT) foreign key - NOT NULL
+- teacher_id: (BIGINT) foreign key - NOT NULL
