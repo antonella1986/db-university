@@ -71,9 +71,11 @@ Modellizzare la struttura di un database per memorizzare tutti i dati riguardant
 - id (BIGINT) primary key - auto_increment - NOT NULL
 - subject_id: (BIGINT) foreign key - NOT NULL
 - teacher_id: (BIGINT) foreign key - NOT NULL
-- date: DATE() - NOT NULL
-- exam_session_expire: DATE() - NOT NULL
+- date: DATE - NOT NULL
+- time: TIME
+- exam_session_expire: DATE - NOT NULL
 - number_of_students: SMALLINT() - NOT NULL
+- cfu: TINYINT - NOT NULL
 
 ***************************************************************
 
@@ -102,3 +104,33 @@ Modellizzare la struttura di un database per memorizzare tutti i dati riguardant
 - student_id: (BIGINT) foreign key - NOT NULL
 - exam_session_id: (BIGINT) foreign key - NOT NULL
 - teacher_id: (BIGINT) foreign key - NOT NULL
+
+*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_
+
+- Selezionare tutti i nati nel 1990:
+
+SELECT *
+FROM `students`
+WHERE YEAR(date_of_birth) = '1990'
+
+- Selezionare tutti i corsi che valgono più di 10 crediti:
+
+SELECT *
+FROM `courses`
+WHERE cfu > 10
+
+- Selezionare tutti gli studenti che hanno più di 30 anni:
+
+SELECT *
+FROM `students`
+WHERE YEAR(date_of_birth) <= 1995
+
+- Selezionare tutti i corsi del primo semestre del primo anno di un qualsiasi corso di laurea:
+
+SELECT *
+FROM `courses`
+WHERE `year` = 1
+AND `period` = 'I semestre'
+
+- Selezionare tutti gli appelli d'esame che avvengono nel pomeriggio (dopo le 14) del 20/06/2020:
+
