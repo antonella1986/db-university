@@ -152,6 +152,6 @@ FROM `departments`
 
 - Quanti sono gli insegnanti che non hanno un numero di telefono?:
 
-SELECT COUNT(phone)
+SELECT COUNT(id)
 FROM `teachers`
 WHERE `phone` IS NULL
