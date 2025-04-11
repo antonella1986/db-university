@@ -47,9 +47,28 @@ WHERE `departments`.`name` = 'Dipartimento di Matematica'
 
 # GROUP BY
 1. Contare quanti iscritti ci sono stati ogni anno
+SELECT YEAR(`enrolment_date`), COUNT(*) AS total_students
+FROM `students`
+GROUP BY YEAR(`enrolment_date`)
+
 2. Contare gli insegnanti che hanno l'ufficio nello stesso edificio
+SELECT `office_address` AS `office_location`, COUNT(*) AS `teachers_number`
+FROM `teachers`
+GROUP BY `office_address`
+
 3. Calcolare la media dei voti di ogni appello d'esame
+SELECT AVG(`exam_student`.`vote`) AS `vote_average`, `courses`.`name` AS `course_name`, `degrees`.`name` AS `degree_name`
+FROM `exam_student`
+JOIN `exams` ON `exam_student`.`exam_id` = `exams`.`id`
+JOIN `courses` ON `exams`.`course_id` = `courses`.`id`
+JOIN `degrees` ON `courses`.`degree_id` = `degrees`.`id`
+GROUP BY `courses`.`id`
+
 4. Contare quanti corsi di laurea ci sono per ogni dipartimento
+SELECT COUNT(`degrees`.`id`), `departments`.`name`
+FROM `departments`
+JOIN `degrees` ON `degrees`.`department_id` = `departments`.`id`
+GROUP BY `departments`.`id`
 
 # RIPASSINO SELECT (extra bonus opzionale per il weekend):
 1. Selezionare tutti gli insegnanti
